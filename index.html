@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPT FINAL PROJECT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="Form-box">
+        <form class="Login-form" id="loginForm">
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="email" required>
+                <label>Email</label>
+                <ion-icon name="mail-outline"></ion-icon>
+            </div>
+            <div class="input-box">
+                <input type="password" required>
+                <label>Password</label>
+                <ion-icon name="lock-closed-outline"></ion-icon>
+            </div>
+            <div class="checkbox">
+                <span>
+                    <input type="checkbox" id="login-checkbox">
+                    <label for="login-checkbox">Remember Me</label>
+                </span>
+                <h5>Forgot password?</h5>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+            <h5 class="Register-btn">Don't have an account? <a href="#" id="registerLink">Register</a></h5>
+        </form>
+        <form class="Register-form" id="registerForm">
+            <ion-icon name="person-outline"></ion-icon>
+            <script src="script.js"></script>
+        </form>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="script.js"></script>
+
+    <script type="module">
+        const loginForm = document.getElementById('loginForm');
+        loginForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const email = loginForm.querySelector('input[type="email"]').value;
+            const password = loginForm.querySelector('input[type="password"]').value;
+
+            if (email === 'loyolacarlo18@gmail.com' && password === 'password') {
+                window.location.href = 'home.html'; 
+
+            } else {
+            
+                alert('Invalid email or password');
+            }
+        });
+        const registerLink = document.getElementById('registerLink');
+        registerLink.addEventListener('click', function (event) {
+            event.preventDefault();
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            loginForm.style.display = 'none';
+            registerForm.style.display = 'block';
+        });
+        const loginLink = document.getElementById('loginLink');
+        loginLink.addEventListener('click', function (event) {
+            event.preventDefault();
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            loginForm.style.display = 'block';
+            registerForm.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
+
